@@ -1,24 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--About the Game of Life-->
+        <scene sceneID="gME-6O-wxT">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="It5-U5-8qX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VJU-ak-zCF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bsj-6A-j5h" userLabel="Button Stack View">
+                                <rect key="frame" x="10" y="260" width="394" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uP-gW-sih">
+                                        <rect key="frame" x="0.0" y="0.0" width="176.5" height="30"/>
+                                        <state key="normal" title="More Info"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJL-wW-YWF">
+                                        <rect key="frame" x="226.5" y="0.0" width="167.5" height="30"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <segue destination="4I4-a4-030" kind="show" id="eeQ-cn-2aZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqa-Co-F7R">
+                                <rect key="frame" x="10" y="300" width="394" height="552"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor or any other Turing machine.  The universe of the Game of Life is an infinite, two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead, (or populated and unpopulated, respectively). Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
+
+1. Any live cell with two or three live neighbours survives.
+2. Any dead cell with three live neighbours becomes a live cell.
+3. All other live cells die in the next generation. Similarly, all other dead cells stay dead. 
+The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed; births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick. Each generation is a pure function of the preceding one. The rules continue to be applied repeatedly to create further generations.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This app is a small simulation of a cellular automaton created by the mathmetician John Horton Conway." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj8-Qp-kjS">
+                                <rect key="frame" x="10" y="150" width="394" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3Ve-Uw-AMC"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mov-el-98h" firstAttribute="trailing" secondItem="Bqa-Co-F7R" secondAttribute="trailing" constant="10" id="0K2-RU-I6Y"/>
+                            <constraint firstItem="mov-el-98h" firstAttribute="trailing" secondItem="fj8-Qp-kjS" secondAttribute="trailing" constant="10" id="9NA-3t-eOf"/>
+                            <constraint firstItem="bsj-6A-j5h" firstAttribute="top" secondItem="fj8-Qp-kjS" secondAttribute="bottom" constant="10" id="BRw-8c-QAy"/>
+                            <constraint firstItem="fj8-Qp-kjS" firstAttribute="leading" secondItem="mov-el-98h" secondAttribute="leading" constant="10" id="JWf-u5-2ft"/>
+                            <constraint firstItem="bsj-6A-j5h" firstAttribute="centerX" secondItem="VJU-ak-zCF" secondAttribute="centerX" id="Mo5-K7-dLR"/>
+                            <constraint firstItem="fj8-Qp-kjS" firstAttribute="top" secondItem="mov-el-98h" secondAttribute="top" constant="10" id="OuZ-FA-uy5"/>
+                            <constraint firstItem="Bqa-Co-F7R" firstAttribute="leading" secondItem="mov-el-98h" secondAttribute="leading" constant="10" id="R0O-Pa-wjY"/>
+                            <constraint firstItem="mov-el-98h" firstAttribute="trailing" secondItem="bsj-6A-j5h" secondAttribute="trailing" constant="10" id="T19-h6-Vmy"/>
+                            <constraint firstItem="Bqa-Co-F7R" firstAttribute="top" secondItem="bsj-6A-j5h" secondAttribute="bottom" constant="10" id="Wm7-Wl-1ov"/>
+                            <constraint firstItem="bsj-6A-j5h" firstAttribute="leading" secondItem="mov-el-98h" secondAttribute="leading" constant="10" id="g9t-Sv-iEd"/>
+                            <constraint firstItem="mov-el-98h" firstAttribute="bottom" secondItem="Bqa-Co-F7R" secondAttribute="bottom" constant="10" id="l0s-jJ-LZ6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mov-el-98h"/>
                     </view>
+                    <navigationItem key="navigationItem" title="About the Game of Life" largeTitleDisplayMode="always" id="J4H-yl-Mvz">
+                        <barButtonItem key="backBarButtonItem" title="About" id="kA9-yg-WUD"/>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Qf-tv-J9n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1027.536231884058" y="96.428571428571431"/>
+        </scene>
+        <!--Game of Life-->
+        <scene sceneID="rSL-Qy-5eF">
+            <objects>
+                <viewController id="4I4-a4-030" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jjk-9g-o3f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wZ-8k-GJb">
+                                <rect key="frame" x="10" y="150" width="394" height="394"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2wZ-8k-GJb" secondAttribute="height" multiplier="1:1" id="nSv-gE-cq7"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vn7-Vt-sfQ" userLabel="Presets Stack View">
+                                <rect key="frame" x="10" y="554" width="394" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPe-dN-28Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-jl-TZR">
+                                        <rect key="frame" x="101" y="0.0" width="91" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-zh-Cwx">
+                                        <rect key="frame" x="202" y="0.0" width="91" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJc-iY-zzg">
+                                        <rect key="frame" x="303" y="0.0" width="91" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="C1q-PN-hO7">
+                                <rect key="frame" x="10" y="594" width="394" height="24"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5I9-fb-BWz" userLabel="Play Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="226" height="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwU-gO-ziG" userLabel="Play">
+                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" image="play.fill" catalog="system"/>
+                                                <state key="selected" image="pause.fill" catalog="system"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qua-hG-TkU" userLabel="Fast Forward">
+                                                <rect key="frame" x="78.5" y="0.0" width="69" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" image="forward.fill" catalog="system"/>
+                                                <state key="selected" image="forward" catalog="system"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGT-bG-DzU" userLabel="Stop">
+                                                <rect key="frame" x="157.5" y="0.0" width="68.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" image="stop.fill" catalog="system"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7uU-v7-9wa" userLabel="Gen Stack View">
+                                        <rect key="frame" x="270" y="0.0" width="124" height="24"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibO-DX-i3g">
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6r-sP-h8N">
+                                                <rect key="frame" x="111.5" y="0.0" width="12.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2wZ-8k-GJb" firstAttribute="top" secondItem="A1d-JW-Xef" secondAttribute="top" constant="10" id="5QT-JY-Pdh"/>
+                            <constraint firstItem="Vn7-Vt-sfQ" firstAttribute="top" secondItem="2wZ-8k-GJb" secondAttribute="bottom" constant="10" id="5we-ks-XaL"/>
+                            <constraint firstItem="A1d-JW-Xef" firstAttribute="trailing" secondItem="C1q-PN-hO7" secondAttribute="trailing" constant="10" id="G77-l7-Ocu"/>
+                            <constraint firstItem="C1q-PN-hO7" firstAttribute="top" secondItem="Vn7-Vt-sfQ" secondAttribute="bottom" constant="10" id="JeJ-7e-dne"/>
+                            <constraint firstItem="Vn7-Vt-sfQ" firstAttribute="leading" secondItem="A1d-JW-Xef" secondAttribute="leading" constant="10" id="Q3u-vT-BCG"/>
+                            <constraint firstItem="C1q-PN-hO7" firstAttribute="leading" secondItem="A1d-JW-Xef" secondAttribute="leading" constant="10" id="VT6-8C-n46"/>
+                            <constraint firstItem="A1d-JW-Xef" firstAttribute="trailing" secondItem="2wZ-8k-GJb" secondAttribute="trailing" constant="10" id="VWA-5l-rYa"/>
+                            <constraint firstItem="Vn7-Vt-sfQ" firstAttribute="centerX" secondItem="Jjk-9g-o3f" secondAttribute="centerX" id="WKq-NZ-3IS"/>
+                            <constraint firstItem="A1d-JW-Xef" firstAttribute="trailing" secondItem="Vn7-Vt-sfQ" secondAttribute="trailing" constant="10" id="wQb-Fi-X5b"/>
+                            <constraint firstItem="2wZ-8k-GJb" firstAttribute="leading" secondItem="A1d-JW-Xef" secondAttribute="leading" constant="10" id="xr8-bP-mGQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A1d-JW-Xef"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Game of Life" id="Kd2-ze-3lk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u29-p5-CPs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1837.68115942029" y="95.758928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hQf-wn-4qT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e39-Bz-PGu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0hT-e3-a1w">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="It5-U5-8qX" kind="relationship" relationship="rootViewController" id="JwP-ot-Abi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4G-px-HT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.39130434782609" y="96.428571428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="forward" catalog="system" width="128" height="79"/>
+        <image name="forward.fill" catalog="system" width="128" height="79"/>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="stop.fill" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
