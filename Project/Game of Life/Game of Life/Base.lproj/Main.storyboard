@@ -10,7 +10,7 @@
         <!--About the Game of Life-->
         <scene sceneID="gME-6O-wxT">
             <objects>
-                <viewController id="It5-U5-8qX" sceneMemberID="viewController">
+                <viewController id="It5-U5-8qX" customClass="AboutViewController" customModule="Game_of_Life" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VJU-ak-zCF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,6 +74,10 @@ The initial pattern constitutes the seed of the system. The first generation is 
                     <navigationItem key="navigationItem" title="About the Game of Life" largeTitleDisplayMode="always" id="J4H-yl-Mvz">
                         <barButtonItem key="backBarButtonItem" title="About" id="kA9-yg-WUD"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="moreButton" destination="5uP-gW-sih" id="emD-Ea-YUO"/>
+                        <outlet property="moreTextView" destination="Bqa-Co-F7R" id="qbr-kU-Y4V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Qf-tv-J9n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,7 +86,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
         <!--Game of Life-->
         <scene sceneID="rSL-Qy-5eF">
             <objects>
-                <viewController id="4I4-a4-030" sceneMemberID="viewController">
+                <viewController id="4I4-a4-030" customClass="LifeViewController" customModule="Game_of_Life" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jjk-9g-o3f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,18 +104,30 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPe-dN-28Y">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="preset1Button:" destination="4I4-a4-030" eventType="touchUpInside" id="4jg-s8-Xn8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-jl-TZR">
                                         <rect key="frame" x="101" y="0.0" width="91" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="preset2Button:" destination="4I4-a4-030" eventType="touchUpInside" id="Oqi-C6-ugm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-zh-Cwx">
                                         <rect key="frame" x="202" y="0.0" width="91" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="preset3Button:" destination="4I4-a4-030" eventType="touchUpInside" id="Uy4-rM-Mmf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJc-iY-zzg">
                                         <rect key="frame" x="303" y="0.0" width="91" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="preset4Button:" destination="4I4-a4-030" eventType="touchUpInside" id="kie-Xf-slh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -126,17 +142,26 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" image="play.fill" catalog="system"/>
                                                 <state key="selected" image="pause.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="playPauseToggle:" destination="4I4-a4-030" eventType="touchUpInside" id="MMK-u7-N3Q"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qua-hG-TkU" userLabel="Fast Forward">
                                                 <rect key="frame" x="78.5" y="0.0" width="69" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" image="forward.fill" catalog="system"/>
                                                 <state key="selected" image="forward" catalog="system"/>
+                                                <connections>
+                                                    <action selector="fastForwardToggle:" destination="4I4-a4-030" eventType="touchUpInside" id="kNf-rO-mru"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGT-bG-DzU" userLabel="Stop">
                                                 <rect key="frame" x="157.5" y="0.0" width="68.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" image="stop.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="stopButton:" destination="4I4-a4-030" eventType="touchUpInside" id="Uo6-P9-KNU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -176,6 +201,11 @@ The initial pattern constitutes the seed of the system. The first generation is 
                         <viewLayoutGuide key="safeArea" id="A1d-JW-Xef"/>
                     </view>
                     <navigationItem key="navigationItem" title="Game of Life" id="Kd2-ze-3lk"/>
+                    <connections>
+                        <outlet property="fastForwardButton" destination="qua-hG-TkU" id="A2T-cI-BEQ"/>
+                        <outlet property="generationLabel" destination="K6r-sP-h8N" id="uha-dU-CxE"/>
+                        <outlet property="playButton" destination="VwU-gO-ziG" id="6j1-im-cPL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u29-p5-CPs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
