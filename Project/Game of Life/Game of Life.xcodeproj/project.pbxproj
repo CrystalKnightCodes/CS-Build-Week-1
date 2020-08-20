@@ -14,6 +14,8 @@
 		BAFB6A3924ECC5D100FE28E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFB6A3724ECC5D100FE28E6 /* LaunchScreen.storyboard */; };
 		BAFB6A4224ECD9D500FE28E6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFB6A4124ECD9D500FE28E6 /* AboutViewController.swift */; };
 		BAFB6A4424ECD9E700FE28E6 /* LifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFB6A4324ECD9E700FE28E6 /* LifeViewController.swift */; };
+		BAFB6A4724EE00E500FE28E6 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFB6A4624EE00E500FE28E6 /* Cell.swift */; };
+		BAFB6A4924EE00FF00FE28E6 /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFB6A4824EE00FF00FE28E6 /* CellController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		BAFB6A3A24ECC5D100FE28E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAFB6A4124ECD9D500FE28E6 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BAFB6A4324ECD9E700FE28E6 /* LifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeViewController.swift; sourceTree = "<group>"; };
+		BAFB6A4624EE00E500FE28E6 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		BAFB6A4824EE00FF00FE28E6 /* CellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			children = (
 				BAFB6A4024ECD9A500FE28E6 /* Resources */,
 				BAFB6A3224ECC5D000FE28E6 /* Main.storyboard */,
+				BAFB6A4624EE00E500FE28E6 /* Cell.swift */,
+				BAFB6A4824EE00FF00FE28E6 /* CellController.swift */,
 				BAFB6A4524ECD9EF00FE28E6 /* View Controllers */,
 				BAFB6A3524ECC5D100FE28E6 /* Assets.xcassets */,
 				BAFB6A3724ECC5D100FE28E6 /* LaunchScreen.storyboard */,
@@ -159,6 +165,8 @@
 			files = (
 				BAFB6A4224ECD9D500FE28E6 /* AboutViewController.swift in Sources */,
 				BAFB6A2D24ECC5D000FE28E6 /* AppDelegate.swift in Sources */,
+				BAFB6A4724EE00E500FE28E6 /* Cell.swift in Sources */,
+				BAFB6A4924EE00FF00FE28E6 /* CellController.swift in Sources */,
 				BAFB6A4424ECD9E700FE28E6 /* LifeViewController.swift in Sources */,
 				BAFB6A2F24ECC5D000FE28E6 /* SceneDelegate.swift in Sources */,
 			);
