@@ -98,33 +98,49 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                     <constraint firstAttribute="width" secondItem="2wZ-8k-GJb" secondAttribute="height" multiplier="1:1" id="nSv-gE-cq7"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vn7-Vt-sfQ" userLabel="Presets Stack View">
-                                <rect key="frame" x="10" y="554" width="394" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vn7-Vt-sfQ" userLabel="Presets Stack View">
+                                <rect key="frame" x="10" y="554" width="394" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPe-dN-28Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Toad"/>
+                                        <state key="selected">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="preset1Button:" destination="4I4-a4-030" eventType="touchUpInside" id="4jg-s8-Xn8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-jl-TZR">
-                                        <rect key="frame" x="101" y="0.0" width="91" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="72.5" y="0.0" width="75.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Glider"/>
+                                        <state key="selected">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="preset2Button:" destination="4I4-a4-030" eventType="touchUpInside" id="Oqi-C6-ugm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-zh-Cwx">
-                                        <rect key="frame" x="202" y="0.0" width="91" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="158" y="0.0" width="134" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Spaceship"/>
+                                        <state key="selected">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="preset3Button:" destination="4I4-a4-030" eventType="touchUpInside" id="Uy4-rM-Mmf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJc-iY-zzg">
-                                        <rect key="frame" x="303" y="0.0" width="91" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="302" y="0.0" width="92" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Pulsar"/>
+                                        <state key="selected">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="preset4Button:" destination="4I4-a4-030" eventType="touchUpInside" id="kie-Xf-slh"/>
                                         </connections>
@@ -132,7 +148,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="C1q-PN-hO7">
-                                <rect key="frame" x="10" y="594" width="394" height="24"/>
+                                <rect key="frame" x="10" y="600" width="394" height="24"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5I9-fb-BWz" userLabel="Play Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="226" height="24"/>
