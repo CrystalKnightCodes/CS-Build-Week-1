@@ -5,17 +5,17 @@
 //  Created by Crystal Knight on 8/19/20.
 //  Copyright © 2020 Knight Night. All rights reserved.
 //
-
+import UIKit
 import Foundation
 
 class Cell {
-    let id: Int
-    let row: Int
-    let column: Int
+    let id: CGFloat
+    let row: CGFloat
+    let column: CGFloat
     var isAlive: Bool
     
-    init(id: Int, row: Int, column: Int, isAlive: Bool = false) {
-        self.id = id
+    init(row: CGFloat, column: CGFloat, isAlive: Bool = false) {
+        self.id = ((row - 1) * 25) + column
         self.row = row
         self.column = column
         self.isAlive = isAlive
