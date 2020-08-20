@@ -91,7 +91,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wZ-8k-GJb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wZ-8k-GJb" customClass="CellView" customModule="Game_of_Life" customModuleProvider="target">
                                 <rect key="frame" x="10" y="150" width="394" height="394"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
