@@ -9,13 +9,13 @@ import UIKit
 import Foundation
 
 class Cell {
-    let id: CGFloat
+    let id: Int
     let row: CGFloat
     let column: CGFloat
     var isAlive: Bool
     
     init(row: CGFloat, column: CGFloat, isAlive: Bool = false) {
-        self.id = ((row - 1) * 25) + column
+        self.id = Int(((row - 1) * 25) + column)
         self.row = row
         self.column = column
         self.isAlive = isAlive
