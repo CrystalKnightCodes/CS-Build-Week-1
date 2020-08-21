@@ -13,40 +13,140 @@ class LifeViewController: UIViewController {
     @IBOutlet var playButton: UIButton!
     @IBOutlet var fastForwardButton: UIButton!
     @IBOutlet var generationLabel: UILabel!
+    @IBOutlet var toadButton: UIButton!
+    @IBOutlet var gliderButton: UIButton!
+    @IBOutlet var spaceshipButton: UIButton!
+    @IBOutlet var pulsarButton: UIButton!
+    
+    // MARK: - Properties
+    var cellController = CellController()
+    var toadIsAlive = false
+    var gliderIsAlive = false
+    var spaceshipIsAlive = false
+    var pulsarIsAlive = false
+    var isPlaying = false
+    var isPlayingFast = false
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        cellController.initializeGrid()
     }
     
     // MARK: - Actions
-    @IBAction func preset1Button(_ sender: UIButton) {
-        
+    @IBAction func toadButton(_ sender: UIButton) {
+        if toadIsAlive {
+            cellController.destroyToad()
+            toadIsAlive.toggle()
+            toadButton.isSelected.toggle()
+        } else {
+            cellController.createToad()
+            toadIsAlive.toggle()
+            toadButton.isSelected.toggle()
+        }
     }
     
-    @IBAction func preset2Button(_ sender: UIButton) {
-        
+    @IBAction func gliderButton(_ sender: UIButton) {
+        if gliderIsAlive {
+            cellController.destroyGlider()
+            gliderIsAlive.toggle()
+            gliderButton.isSelected.toggle()
+        } else {
+            cellController.createGlider()
+            gliderIsAlive.toggle()
+            gliderButton.isSelected.toggle()
+        }
     }
     
-    @IBAction func preset3Button(_ sender: UIButton) {
-        
+    @IBAction func spaceshipButton(_ sender: UIButton) {
+        if spaceshipIsAlive {
+            cellController.destroySpaceship()
+            spaceshipIsAlive.toggle()
+            spaceshipButton.isSelected.toggle()
+        } else {
+            cellController.createSpaceship()
+            spaceshipIsAlive.toggle()
+            spaceshipButton.isSelected.toggle()
+        }
     }
     
-    @IBAction func preset4Button(_ sender: UIButton) {
-        
+    @IBAction func pulsarButton(_ sender: UIButton) {
+        if pulsarIsAlive {
+            cellController.destroyPulsar()
+            pulsarIsAlive.toggle()
+            pulsarButton.isSelected.toggle()
+        } else {
+            cellController.createSpaceship()
+            pulsarIsAlive.toggle()
+            pulsarButton.isSelected.toggle()
+        }
     }
     
     @IBAction func playPauseToggle(_ sender: UIButton) {
-        
+        if isPlaying {
+            // Pause Generations
+            presetButtonsToggle()
+            playToggle()
+            if isPlayingFast {
+                playFastToggle()
+            }
+            // TODO: Stop Cell Generation
+        } else {
+            // Play Generations
+            presetButtonsToggle()
+            playToggle()
+            // TODO: Start Cell Generation
+        }
     }
     
     @IBAction func fastForwardToggle(_ sender: UIButton) {
-        
+        if isPlaying {
+            if isPlayingFast {
+                // Slow down to normal speed
+                playFastToggle()
+                // TODO: Slow down generations
+            } else {
+                // Speed up generations
+                playFastToggle()
+                // TODO: Speed up generations
+            }
+        } else {
+            // Play quickly
+            presetButtonsToggle()
+            playToggle()
+            playFastToggle()
+        }
     }
     
     @IBAction func stopButton(_ sender: UIButton) {
-        
+        // Stop and clear grid
+        if isPlaying {
+            presetButtonsToggle()
+            playToggle()
+            cellController.initializeGrid()
+            if isPlayingFast {
+                playFastToggle()
+            }
+        }
+        // TODO: Display cleared grid
+    }
+    
+    // MARK: - Methods
+    func presetButtonsToggle() {
+        // Enables all preset buttons
+        toadButton.isEnabled.toggle()
+        gliderButton.isEnabled.toggle()
+        spaceshipButton.isEnabled.toggle()
+        pulsarButton.isEnabled.toggle()
+    }
+    
+    func playToggle() {
+        playButton.isSelected.toggle()
+        isPlaying.toggle()
+    }
+    
+    func playFastToggle() {
+        fastForwardButton.isSelected.toggle()
+        isPlayingFast.toggle()
     }
 }

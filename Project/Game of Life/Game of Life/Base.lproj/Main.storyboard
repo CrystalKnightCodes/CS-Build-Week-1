@@ -109,7 +109,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="preset1Button:" destination="4I4-a4-030" eventType="touchUpInside" id="4jg-s8-Xn8"/>
+                                            <action selector="toadButton:" destination="4I4-a4-030" eventType="touchUpInside" id="4jg-s8-Xn8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-jl-TZR">
@@ -120,7 +120,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="preset2Button:" destination="4I4-a4-030" eventType="touchUpInside" id="Oqi-C6-ugm"/>
+                                            <action selector="gliderButton:" destination="4I4-a4-030" eventType="touchUpInside" id="Oqi-C6-ugm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-zh-Cwx">
@@ -131,7 +131,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="preset3Button:" destination="4I4-a4-030" eventType="touchUpInside" id="Uy4-rM-Mmf"/>
+                                            <action selector="spaceshipButton:" destination="4I4-a4-030" eventType="touchUpInside" id="Uy4-rM-Mmf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJc-iY-zzg">
@@ -142,7 +142,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="preset4Button:" destination="4I4-a4-030" eventType="touchUpInside" id="kie-Xf-slh"/>
+                                            <action selector="pulsarButton:" destination="4I4-a4-030" eventType="touchUpInside" id="kie-Xf-slh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -220,7 +220,11 @@ The initial pattern constitutes the seed of the system. The first generation is 
                     <connections>
                         <outlet property="fastForwardButton" destination="qua-hG-TkU" id="A2T-cI-BEQ"/>
                         <outlet property="generationLabel" destination="K6r-sP-h8N" id="uha-dU-CxE"/>
+                        <outlet property="gliderButton" destination="rPl-jl-TZR" id="8gh-3h-pq7"/>
                         <outlet property="playButton" destination="VwU-gO-ziG" id="6j1-im-cPL"/>
+                        <outlet property="pulsarButton" destination="pJc-iY-zzg" id="VGU-0b-OFV"/>
+                        <outlet property="spaceshipButton" destination="BTb-zh-Cwx" id="vdL-pP-odP"/>
+                        <outlet property="toadButton" destination="UPe-dN-28Y" id="X9m-LB-irI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u29-p5-CPs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
