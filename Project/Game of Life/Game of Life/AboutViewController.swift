@@ -15,11 +15,13 @@ class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        moreTextView.isHidden = true
     }
     
-
+    @IBAction func moreButton(_ sender: UIButton) {
+        moreTextView.isHidden.toggle()
+    }
+    
     /*
     // MARK: - Navigation
 

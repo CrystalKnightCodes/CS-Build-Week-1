@@ -21,6 +21,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uP-gW-sih">
                                         <rect key="frame" x="0.0" y="0.0" width="176.5" height="30"/>
                                         <state key="normal" title="More Info"/>
+                                        <connections>
+                                            <action selector="moreButton:" destination="It5-U5-8qX" eventType="touchUpInside" id="FSo-hP-dU6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJL-wW-YWF">
                                         <rect key="frame" x="226.5" y="0.0" width="167.5" height="30"/>
