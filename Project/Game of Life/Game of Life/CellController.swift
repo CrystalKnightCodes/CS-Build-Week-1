@@ -11,34 +11,111 @@ import UIKit
 
 class CellController {
     // MARK: - Properties
-    var currentCells: [Cell] = []
-    var futureCells: [Cell] = []
-    
-    // MARK: - Methods
-    func initializeGrid() {
-        for row in 1...25 {
-            for column in 1...25 {
-                let cell = Cell(row: CGFloat(row), column: CGFloat(column))
-                currentCells.append(cell)
-                futureCells.append(cell)
+    var grid: Grid {
+        didSet {
+            updateFutureCellsBuffer { futureCells in
+                self.futureCellsBuffer = Grid(cells: futureCells)
             }
         }
     }
     
+    var futureCellsBuffer: Grid? {
+        didSet {
+            guard updateReady else { return }
+            updateReady = false
+            updateCells()
+        }
+    }
+    
+    var generations = 0
+    var updateReady = false
+    
+    // MARK: - Initializers
+    init(grid: Grid? = nil) {
+        if let grid = grid {
+            self.grid = grid
+        } else {
+            self.grid = Grid()
+        }
+    }
+    
+    // MARK: - Methods
+    func updateCells() {
+        guard let futureCells = futureCellsBuffer else {
+            updateReady = true
+            return
+        }
+        
+        grid = futureCells
+        generations += 1
+        
+        updateFutureCellsBuffer { futureCells in
+            self.futureCellsBuffer = Grid(cells: futureCells)
+        }
+    }
+    
+    // To find next generation:
+    // Any live cell wih fewer than two live neighbors will die.
+    // Any live cell with 2-3 live neighbors will live.
+    // Any live cell with more than three live neighbors will die.
+    // Any dead cell with exactly 3 live neighbors will become a live cell.
+    
+    func updateFutureCellsBuffer(completion: @escaping ([Cell]) -> Void) {
+        let currentCells = grid.cells
+        var futureCells = currentCells
+        futureCellsBuffer = nil
+        
+        DispatchQueue.global(qos: .background).async {
+            for (index, currentCell) in currentCells.enumerated() {
+                switch self.numberOfAliveNeighbors(for: currentCell) {
+                // Live cells with 2-3 live neighbors will live.
+                case 2...3 where currentCell.isAlive == true:
+                    break
+                // Dead cells with exactly 3 live neighbors become alive.
+                case 3 where currentCell.isAlive == false:
+                    futureCells[index].isAlive = true
+                // Everything else dies.
+                default:
+                    futureCells[index].isAlive = false
+                }
+            }
+        }
+        DispatchQueue.main.async {
+            completion(futureCells)
+        }
+    }
+
+    
+    // Finding the neighbors
+    func neighbors(for cell: Cell) -> [Cell] {
+        var neighbors = [Cell?]()
+        
+        for row in -1...1 {
+            for column in -1...1 {
+                guard !(column == 0 && row == 0) else { continue }
+                let neighbor = grid.findCell(row: Int(cell.row) + row, column: Int(cell.column) + column)
+                neighbors.append(neighbor)
+            }
+        }
+        return neighbors.compactMap { $0 }
+    }
+    
+    func numberOfAliveNeighbors(for cell: Cell) -> Int {
+        neighbors(for: cell).filter { $0.isAlive == true }.count
+    }
+    
+    
+    // Setting the cell state
     func activateCell(cellRow: CGFloat, cellColumn: CGFloat) {
         let newCell = Cell(row: cellRow, column: cellColumn, isAlive: true)
-        futureCells.remove(at: newCell.id - 1)
-        futureCells.insert(newCell, at: newCell.id - 1)
+        futureCellsBuffer?.cells.remove(at: newCell.id - 1)
+        futureCellsBuffer?.cells.insert(newCell, at: newCell.id - 1)
     }
     
     func deactivateCell(cellRow: CGFloat, cellColumn: CGFloat) {
         let newCell = Cell(row: cellRow, column: cellColumn, isAlive: false)
-        futureCells.remove(at: newCell.id - 1)
-        futureCells.insert(newCell, at: newCell.id - 1)
-    }
-    
-    func copyOver() {
-        currentCells = futureCells
+        futureCellsBuffer?.cells.remove(at: newCell.id - 1)
+        futureCellsBuffer?.cells.insert(newCell, at: newCell.id - 1)
     }
     
     // Preset configurations
@@ -49,7 +126,7 @@ class CellController {
         activateCell(cellRow: 4, cellColumn: 21)
         activateCell(cellRow: 4, cellColumn: 22)
         activateCell(cellRow: 4, cellColumn: 23)
-        copyOver()
+        updateCells()
     }
     
     func createPulsar() {
@@ -85,7 +162,7 @@ class CellController {
         activateCell(cellRow: 17, cellColumn: 11)
         activateCell(cellRow: 17, cellColumn: 15)
         activateCell(cellRow: 17, cellColumn: 16)
-        copyOver()
+        updateCells()
     }
     
     func createSpaceship() {
@@ -107,7 +184,7 @@ class CellController {
         activateCell(cellRow: 5, cellColumn: 4)
         activateCell(cellRow: 5, cellColumn: 5)
         activateCell(cellRow: 5, cellColumn: 6)
-        copyOver()
+        updateCells()
     }
     
     func createGlider() {
@@ -116,7 +193,7 @@ class CellController {
         activateCell(cellRow: 23, cellColumn: 24)
         activateCell(cellRow: 24, cellColumn: 23)
         activateCell(cellRow: 24, cellColumn: 24)
-        copyOver()
+        updateCells()
     }
     
     func destroyToad() {
@@ -126,7 +203,7 @@ class CellController {
         deactivateCell(cellRow: 4, cellColumn: 21)
         deactivateCell(cellRow: 4, cellColumn: 22)
         deactivateCell(cellRow: 4, cellColumn: 23)
-        copyOver()
+        updateCells()
     }
     
     func destroyPulsar() {
@@ -162,7 +239,7 @@ class CellController {
         deactivateCell(cellRow: 17, cellColumn: 11)
         deactivateCell(cellRow: 17, cellColumn: 15)
         deactivateCell(cellRow: 17, cellColumn: 16)
-        copyOver()
+        updateCells()
     }
     
     func destroySpaceship() {
@@ -184,7 +261,7 @@ class CellController {
         deactivateCell(cellRow: 5, cellColumn: 4)
         deactivateCell(cellRow: 5, cellColumn: 5)
         deactivateCell(cellRow: 5, cellColumn: 6)
-        copyOver()
+        updateCells()
     }
     
     func destroyGlider() {
@@ -193,6 +270,8 @@ class CellController {
         deactivateCell(cellRow: 23, cellColumn: 24)
         deactivateCell(cellRow: 24, cellColumn: 23)
         deactivateCell(cellRow: 24, cellColumn: 24)
-        copyOver()
+        updateCells()
     }
 }
+
+
