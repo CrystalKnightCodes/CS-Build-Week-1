@@ -17,6 +17,7 @@ class LifeViewController: UIViewController {
     @IBOutlet var gliderButton: UIButton!
     @IBOutlet var spaceshipButton: UIButton!
     @IBOutlet var pulsarButton: UIButton!
+    @IBOutlet var cellView: CellView!
     
     // MARK: - Properties
     var cellController = CellController()
@@ -26,11 +27,17 @@ class LifeViewController: UIViewController {
     var pulsarIsAlive = false
     var isPlaying = false
     var isPlayingFast = false
+    var timer: Timer?
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        cellController.initializeGrid()
+        cellView.grid = cellController.grid
+    }
+    
+    func updateViews() {
+        cellView.grid = cellController.grid
+        generationLabel.text = "\(cellController.generations)"
     }
     
     // MARK: - Actions
@@ -39,10 +46,12 @@ class LifeViewController: UIViewController {
             cellController.destroyToad()
             toadIsAlive.toggle()
             toadButton.isSelected.toggle()
+            updateViews()
         } else {
             cellController.createToad()
             toadIsAlive.toggle()
             toadButton.isSelected.toggle()
+            updateViews()
         }
     }
     
@@ -123,12 +132,12 @@ class LifeViewController: UIViewController {
         if isPlaying {
             presetButtonsToggle()
             playToggle()
-            cellController.initializeGrid()
+            cellController.grid = Grid()
             if isPlayingFast {
                 playFastToggle()
             }
         }
-        // TODO: Display cleared grid
+        updateViews()
     }
     
     // MARK: - Methods
@@ -150,3 +159,4 @@ class LifeViewController: UIViewController {
         isPlayingFast.toggle()
     }
 }
+
