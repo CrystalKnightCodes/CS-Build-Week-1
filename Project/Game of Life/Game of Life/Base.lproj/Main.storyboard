@@ -97,6 +97,9 @@ The initial pattern constitutes the seed of the system. The first generation is 
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wZ-8k-GJb" customClass="CellView" customModule="Game_of_Life" customModuleProvider="target">
                                 <rect key="frame" x="10" y="150" width="394" height="394"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES" updatesFrequently="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2wZ-8k-GJb" secondAttribute="height" multiplier="1:1" id="nSv-gE-cq7"/>
                                 </constraints>
@@ -221,6 +224,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                     </view>
                     <navigationItem key="navigationItem" title="Game of Life" id="Kd2-ze-3lk"/>
                     <connections>
+                        <outlet property="cellView" destination="2wZ-8k-GJb" id="VYD-vA-jB7"/>
                         <outlet property="fastForwardButton" destination="qua-hG-TkU" id="A2T-cI-BEQ"/>
                         <outlet property="generationLabel" destination="K6r-sP-h8N" id="uha-dU-CxE"/>
                         <outlet property="gliderButton" destination="rPl-jl-TZR" id="8gh-3h-pq7"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA936EAA24F3637E00AB80E5 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA936EA924F3637E00AB80E5 /* Grid.swift */; };
 		BAFB6A2D24ECC5D000FE28E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFB6A2C24ECC5D000FE28E6 /* AppDelegate.swift */; };
 		BAFB6A2F24ECC5D000FE28E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFB6A2E24ECC5D000FE28E6 /* SceneDelegate.swift */; };
 		BAFB6A3424ECC5D000FE28E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFB6A3224ECC5D000FE28E6 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA936EA924F3637E00AB80E5 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		BAFB6A2924ECC5D000FE28E6 /* Game of Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game of Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFB6A2C24ECC5D000FE28E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAFB6A2E24ECC5D000FE28E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				BAFB6A4024ECD9A500FE28E6 /* Resources */,
 				BAFB6A3224ECC5D000FE28E6 /* Main.storyboard */,
 				BAFB6A4624EE00E500FE28E6 /* Cell.swift */,
+				BA936EA924F3637E00AB80E5 /* Grid.swift */,
 				BAFB6A4824EE00FF00FE28E6 /* CellController.swift */,
 				BAFB6A4524ECD9EF00FE28E6 /* View Controllers */,
 				BAFB6A3524ECC5D100FE28E6 /* Assets.xcassets */,
@@ -169,6 +172,7 @@
 				BAFB6A4224ECD9D500FE28E6 /* AboutViewController.swift in Sources */,
 				BAFB6A2D24ECC5D000FE28E6 /* AppDelegate.swift in Sources */,
 				BAFB6A4724EE00E500FE28E6 /* Cell.swift in Sources */,
+				BA936EAA24F3637E00AB80E5 /* Grid.swift in Sources */,
 				BAFB6A4924EE00FF00FE28E6 /* CellController.swift in Sources */,
 				BAFB6A4424ECD9E700FE28E6 /* LifeViewController.swift in Sources */,
 				BAFB6A2F24ECC5D000FE28E6 /* SceneDelegate.swift in Sources */,

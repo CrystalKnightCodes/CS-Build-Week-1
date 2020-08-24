@@ -8,14 +8,13 @@
 
 import UIKit
 
-let testCell1 = Cell(row: 1, column: 1, isAlive: true)
-let testCell2 = Cell(row: 5, column: 7, isAlive: true)
-let testCell3 = Cell(row: 5, column: 6, isAlive: true)
-let testCell4 = Cell(row: 5, column: 5)
-let testCells: [Cell] = [testCell1, testCell2, testCell3, testCell4]
-
 class CellView: UIView {
     // MARK: - Properties
+    var grid: Grid? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     private var path = UIBezierPath()
 
     fileprivate var heightAndWidth: CGFloat {
@@ -58,26 +57,31 @@ class CellView: UIView {
         path.stroke()
     }
     
-    func fillGrid(cells: [Cell]) {
+    func fillGrid() {
         path = UIBezierPath()
         path.lineWidth = 1.0
         
-        for cell in cells {
-            if cell.isAlive {
-                path.move(to: CGPoint(x: (cell.column - 1) * gridWidth, y: (cell.row - 1) * gridHeight))
-                path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth + gridWidth, y: (cell.row - 1) * gridHeight))
-                path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth + gridWidth, y: (cell.row - 1) * gridHeight + gridHeight))
-                path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth, y: (cell.row - 1) * gridHeight + gridHeight))
-                path.close()
-                UIColor.black.set()
-                path.lineWidth = 1
-                path.fill()
+        if let grid = grid {
+            for cell in grid.cells {
+                if cell.isAlive {
+                    path.move(to: CGPoint(x: (cell.column - 1) * gridWidth, y: (cell.row - 1) * gridHeight))
+                    path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth + gridWidth, y: (cell.row - 1) * gridHeight))
+                    path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth + gridWidth, y: (cell.row - 1) * gridHeight + gridHeight))
+                    path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth, y: (cell.row - 1) * gridHeight + gridHeight))
+                    path.close()
+                    UIColor.black.set()
+                    path.lineWidth = 1
+                    path.fill()
+                }
             }
         }
     }
 
     override func draw(_ rect: CGRect) {
         drawSquares()
-        fillGrid(cells: testCells)
+        fillGrid()
     }
 }
+
+
+
