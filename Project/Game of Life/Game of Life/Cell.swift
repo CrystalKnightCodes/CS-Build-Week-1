@@ -8,14 +8,15 @@
 import UIKit
 import Foundation
 
-class Cell {
-    let id: Int
-    let row: CGFloat
-    let column: CGFloat
+struct Cell: Hashable {
+    
+    let index: Int
+    let row: Int
+    let column: Int
     var isAlive: Bool
     
-    init(row: CGFloat, column: CGFloat, isAlive: Bool = false) {
-        self.id = Int(((row - 1) * 25) + column)
+    init(row: Int, column: Int, isAlive: Bool = false) {
+        self.index = (((row - 1) * 25) + column)
         self.row = row
         self.column = column
         self.isAlive = isAlive
