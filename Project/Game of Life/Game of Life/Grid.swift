@@ -20,18 +20,33 @@ struct Grid {
         } else {
             for row in 1...25 {
                 for column in 1...25 {
-                    let cell = Cell(row: CGFloat(row), column: CGFloat(column))
+                    let cell = Cell(row: row, column: column)
                     self.cells.append(cell)
                 }
-                
             }
         }
     }
     
     func findCell(row: Int, column: Int) -> Cell? {
-        guard row >= 0, row < 25,
-        column >= 0, column < 25 else { return nil }
+        guard row >= 0, row <= 25,
+        column >= 0, column <= 25 else {
+            return nil
+        }
+        let index = (((row - 1) * 25) + (column - 1))
+        if index >= 0 {
+            return cells[index]
+        } else {
+            return nil
+        }
+    }
+    
+    @discardableResult
+    mutating func toggleCell(row: Int, column: Int, isAlive: Bool) -> Bool {
+        guard row >= 0, row <= 25,
+            column >= 0, column <= 25 else { return false }
         
-        return cells[column * 25 + row]
+        let index = (((row - 1) * 25) + (column - 1))
+        cells[index].isAlive = isAlive
+        return true
     }
 }
