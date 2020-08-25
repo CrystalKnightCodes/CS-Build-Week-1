@@ -108,7 +108,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                 <rect key="frame" x="10" y="554" width="394" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPe-dN-28Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Toad"/>
                                         <state key="selected">
@@ -119,7 +119,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPl-jl-TZR">
-                                        <rect key="frame" x="72.5" y="0.0" width="75.5" height="36"/>
+                                        <rect key="frame" x="58" y="0.0" width="57.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Glider"/>
                                         <state key="selected">
@@ -130,7 +130,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTb-zh-Cwx">
-                                        <rect key="frame" x="158" y="0.0" width="134" height="36"/>
+                                        <rect key="frame" x="125.5" y="0.0" width="102.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Spaceship"/>
                                         <state key="selected">
@@ -141,7 +141,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJc-iY-zzg">
-                                        <rect key="frame" x="302" y="0.0" width="92" height="36"/>
+                                        <rect key="frame" x="238" y="0.0" width="60" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Pulsar"/>
                                         <state key="selected">
@@ -149,6 +149,14 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                         </state>
                                         <connections>
                                             <action selector="pulsarButton:" destination="4I4-a4-030" eventType="touchUpInside" id="kie-Xf-slh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Q3-wI-VAu">
+                                        <rect key="frame" x="308" y="0.0" width="86" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Random"/>
+                                        <connections>
+                                            <action selector="randomButton:" destination="4I4-a4-030" eventType="touchUpInside" id="ESC-po-pMd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -232,6 +240,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
                         <outlet property="gliderButton" destination="rPl-jl-TZR" id="8gh-3h-pq7"/>
                         <outlet property="playButton" destination="VwU-gO-ziG" id="6j1-im-cPL"/>
                         <outlet property="pulsarButton" destination="pJc-iY-zzg" id="VGU-0b-OFV"/>
+                        <outlet property="randomButton" destination="8Q3-wI-VAu" id="VDO-TK-7eB"/>
                         <outlet property="spaceshipButton" destination="BTb-zh-Cwx" id="vdL-pP-odP"/>
                         <outlet property="toadButton" destination="UPe-dN-28Y" id="X9m-LB-irI"/>
                     </connections>

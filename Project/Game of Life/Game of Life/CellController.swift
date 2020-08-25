@@ -333,6 +333,19 @@ class CellController {
         grid = futureGrid!
         isInitialSetup = false
     }
+    
+    func createRandom() {
+        var randomCells = [Cell]()
+        for row in 0...24 {
+            for column in 0...24 {
+                let randomState = Int.random(in: 0...4)
+                let cell = Cell(row: row, column: column, isAlive: randomState == 0 ? true : false)
+                randomCells.append(cell)
+            }
+        }
+        grid.cells = randomCells
+        generations = 0
+    }
 }
 
 

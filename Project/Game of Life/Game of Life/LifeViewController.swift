@@ -17,6 +17,7 @@ class LifeViewController: UIViewController {
     @IBOutlet var gliderButton: UIButton!
     @IBOutlet var spaceshipButton: UIButton!
     @IBOutlet var pulsarButton: UIButton!
+    @IBOutlet var randomButton: UIButton!
     @IBOutlet var cellView: CellView!
     
     // MARK: - Properties
@@ -100,6 +101,11 @@ class LifeViewController: UIViewController {
         }
     }
     
+    @IBAction func randomButton(_ sender: UIButton) {
+        cellController.createRandom()
+        updateViews()
+    }
+    
     @IBAction func playPauseToggle(_ sender: UIButton) {
         if isPlaying {
             // Pause Generations
@@ -112,6 +118,7 @@ class LifeViewController: UIViewController {
             }
         } else {
             // Play Generations
+            deselectPresetButtons()
             presetButtonsToggle()
             playToggle()
             startTimer()
@@ -131,6 +138,7 @@ class LifeViewController: UIViewController {
             }
         } else {
             // Play quickly
+            deselectPresetButtons()
             presetButtonsToggle()
             playToggle()
             playFastToggle()
@@ -191,6 +199,7 @@ class LifeViewController: UIViewController {
         gliderButton.isEnabled.toggle()
         spaceshipButton.isEnabled.toggle()
         pulsarButton.isEnabled.toggle()
+        randomButton.isEnabled.toggle()
     }
     
     func deselectPresetButtons() {
