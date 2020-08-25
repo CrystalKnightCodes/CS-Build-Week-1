@@ -64,10 +64,10 @@ class CellView: UIView {
         if let grid = grid {
             for cell in grid.cells {
                 if cell.isAlive {
-                    path.move(to: CGPoint(x: (cell.column - 1) * gridWidth, y: (cell.row - 1) * gridHeight))
-                    path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth + gridWidth, y: (cell.row - 1) * gridHeight))
-                    path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth + gridWidth, y: (cell.row - 1) * gridHeight + gridHeight))
-                    path.addLine(to: CGPoint(x: (cell.column - 1) * gridWidth, y: (cell.row - 1) * gridHeight + gridHeight))
+                    path.move(to: CGPoint(x: CGFloat(cell.column - 1) * gridWidth, y: CGFloat(cell.row - 1) * gridHeight))
+                    path.addLine(to: CGPoint(x: CGFloat(cell.column - 1) * gridWidth + gridWidth, y: CGFloat(cell.row - 1) * gridHeight))
+                    path.addLine(to: CGPoint(x: CGFloat(cell.column - 1) * gridWidth + gridWidth, y: CGFloat(cell.row - 1) * gridHeight + gridHeight))
+                    path.addLine(to: CGPoint(x: CGFloat(cell.column - 1) * gridWidth, y: CGFloat(cell.row - 1) * gridHeight + gridHeight))
                     path.close()
                     UIColor.black.set()
                     path.lineWidth = 1
