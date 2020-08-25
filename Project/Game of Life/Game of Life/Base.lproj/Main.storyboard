@@ -180,7 +180,9 @@ The initial pattern constitutes the seed of the system. The first generation is 
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGT-bG-DzU" userLabel="Stop">
                                                 <rect key="frame" x="157.5" y="0.0" width="68.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" image="stop.fill" catalog="system"/>
+                                                <state key="normal" image="trash.fill" catalog="system">
+                                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="stopButton:" destination="4I4-a4-030" eventType="touchUpInside" id="Uo6-P9-KNU"/>
                                                 </connections>
@@ -262,6 +264,6 @@ The initial pattern constitutes the seed of the system. The first generation is 
         <image name="forward.fill" catalog="system" width="128" height="79"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
-        <image name="stop.fill" catalog="system" width="128" height="113"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
     </resources>
 </document>

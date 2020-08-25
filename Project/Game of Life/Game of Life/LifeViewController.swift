@@ -21,12 +21,15 @@ class LifeViewController: UIViewController {
     
     // MARK: - Properties
     var cellController = CellController()
+    
     var toadIsAlive = false
     var gliderIsAlive = false
     var spaceshipIsAlive = false
     var pulsarIsAlive = false
+    
     var isPlaying = false
     var isPlayingFast = false
+    
     var timer: Timer?
     
     // MARK: - View
@@ -60,10 +63,12 @@ class LifeViewController: UIViewController {
             cellController.destroyGlider()
             gliderIsAlive.toggle()
             gliderButton.isSelected.toggle()
+            updateViews()
         } else {
             cellController.createGlider()
             gliderIsAlive.toggle()
             gliderButton.isSelected.toggle()
+            updateViews()
         }
     }
     
@@ -72,10 +77,12 @@ class LifeViewController: UIViewController {
             cellController.destroySpaceship()
             spaceshipIsAlive.toggle()
             spaceshipButton.isSelected.toggle()
+            updateViews()
         } else {
             cellController.createSpaceship()
             spaceshipIsAlive.toggle()
             spaceshipButton.isSelected.toggle()
+            updateViews()
         }
     }
     
@@ -84,10 +91,12 @@ class LifeViewController: UIViewController {
             cellController.destroyPulsar()
             pulsarIsAlive.toggle()
             pulsarButton.isSelected.toggle()
+            updateViews()
         } else {
-            cellController.createSpaceship()
+            cellController.createPulsar()
             pulsarIsAlive.toggle()
             pulsarButton.isSelected.toggle()
+            updateViews()
         }
     }
     
@@ -96,15 +105,16 @@ class LifeViewController: UIViewController {
             // Pause Generations
             presetButtonsToggle()
             playToggle()
+            cancelTimer()
             if isPlayingFast {
                 playFastToggle()
+                cancelTimer()
             }
-            // TODO: Stop Cell Generation
         } else {
             // Play Generations
             presetButtonsToggle()
             playToggle()
-            // TODO: Start Cell Generation
+            startTimer()
         }
     }
     
@@ -113,17 +123,18 @@ class LifeViewController: UIViewController {
             if isPlayingFast {
                 // Slow down to normal speed
                 playFastToggle()
-                // TODO: Slow down generations
+                startTimer()
             } else {
                 // Speed up generations
                 playFastToggle()
-                // TODO: Speed up generations
+                startFastTimer()
             }
         } else {
             // Play quickly
             presetButtonsToggle()
             playToggle()
             playFastToggle()
+            startFastTimer()
         }
     }
     
@@ -132,21 +143,75 @@ class LifeViewController: UIViewController {
         if isPlaying {
             presetButtonsToggle()
             playToggle()
-            cellController.grid = Grid()
             if isPlayingFast {
                 playFastToggle()
             }
         }
+        cancelTimer()
+        cellController.grid = Grid()
+        cellController.generations = 0
+        deselectPresetButtons()
         updateViews()
     }
     
     // MARK: - Methods
+    // Timer
+    func startTimer() {
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { [weak self] _ in
+            guard let self = self else { return }
+            self.nextGeneration()
+        })
+    }
+    
+    func startFastTimer() {
+                timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { [weak self] _ in
+            guard let self = self else { return }
+            self.nextGeneration()
+        })
+    }
+    
+    func cancelTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func nextGeneration() {
+        cellController.updateGrid()
+        updateViews()
+    }
+    
+    // Button Helpers
     func presetButtonsToggle() {
         // Enables all preset buttons
         toadButton.isEnabled.toggle()
         gliderButton.isEnabled.toggle()
         spaceshipButton.isEnabled.toggle()
         pulsarButton.isEnabled.toggle()
+    }
+    
+    func deselectPresetButtons() {
+        let buttons = [toadButton, gliderButton, spaceshipButton, pulsarButton]
+        for button in buttons {
+            if button!.isSelected {
+                button?.isSelected = false
+            }
+        }
+        if toadIsAlive {
+            toadIsAlive.toggle()
+        }
+        if gliderIsAlive {
+            gliderIsAlive.toggle()
+        }
+        if spaceshipIsAlive {
+            spaceshipIsAlive.toggle()
+        }
+        if pulsarIsAlive {
+            pulsarIsAlive.toggle()
+        }
     }
     
     func playToggle() {
