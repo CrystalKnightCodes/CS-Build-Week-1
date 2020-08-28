@@ -47,6 +47,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA936EAB24F8B2E000AB80E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAFB6A4624EE00E500FE28E6 /* Cell.swift */,
+				BA936EA924F3637E00AB80E5 /* Grid.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BA936EAC24F8B2EC00AB80E5 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BAFB6A4824EE00FF00FE28E6 /* CellController.swift */,
+			);
+			name = "Model Controller";
+			sourceTree = "<group>";
+		};
 		BAFB6A2024ECC5CF00FE28E6 = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +85,8 @@
 			children = (
 				BAFB6A4024ECD9A500FE28E6 /* Resources */,
 				BAFB6A3224ECC5D000FE28E6 /* Main.storyboard */,
-				BAFB6A4624EE00E500FE28E6 /* Cell.swift */,
-				BA936EA924F3637E00AB80E5 /* Grid.swift */,
-				BAFB6A4824EE00FF00FE28E6 /* CellController.swift */,
+				BA936EAB24F8B2E000AB80E5 /* Model */,
+				BA936EAC24F8B2EC00AB80E5 /* Model Controller */,
 				BAFB6A4524ECD9EF00FE28E6 /* View Controllers */,
 				BAFB6A3524ECC5D100FE28E6 /* Assets.xcassets */,
 				BAFB6A3724ECC5D100FE28E6 /* LaunchScreen.storyboard */,
